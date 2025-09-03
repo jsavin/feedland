@@ -1284,7 +1284,6 @@ function checkFeedItems (feedRec, theFeed, flNewFeed, callback) {
 					const json1 = itemRec [name];
 					const json2 = dbItem [name];
 					if (!jsonObjectsEqual (json1, json2)) {
-						console.log (name + " changed.");
 						flChanged = true;
 						}
 					}
