@@ -1,3 +1,7 @@
+#### 10/27/25; 12:49:23 PM by DW
+
+In getRiver2 the first param can be a string, we weren't handling that properly. 
+
 #### 10/26/25; 11:10:54 AM by DW -- v0.8.3
 
 Finishing the new getRiver function. It will get more testing, so there may still be changes. 

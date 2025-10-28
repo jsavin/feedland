@@ -3868,6 +3868,9 @@ function processSubscriptionList (screenname, theList, flDeleteEnabled=true, cal
 			}
 		
 		var sqltext = "", flRunSql = true;
+		if (typeof feedUrl == "string") { //10/27/25 by DW
+			feedUrl = [feedUrl];
+			}
 		if (Array.isArray (feedUrl)) { //it's a list of feed urls
 			sqltext = getSqlForListofUrls (feedUrl);
 			}
