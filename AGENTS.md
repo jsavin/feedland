@@ -17,3 +17,8 @@ Keep commits focused and write imperative subject lines (`Fix socket renewal tim
 
 ## Configuration & Security Notes
 The sample credentials in `utils/config.json` are placeholders—do not commit real secrets. Provide deployment-specific overrides through environment files ignored by Git, and confirm any new configuration keys are propagated before `database.start()` to keep runtime and SQL defaults synchronized.
+
+## Ongoing Risk Tracking Process
+- Maintain the blocking issues list in `notes/codeReviews/mustDoIssues.md`; review it at the start of every session and whenever deciding “what’s next.”
+- When new high-severity findings emerge (e.g., secrets in URLs, missing sanitization, deployment blockers), add them to that file with context and follow-ups so future agents can continue the work.
+- Surface the must-do list in status updates and PR summaries to ensure these items stay visible until resolved.
