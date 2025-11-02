@@ -3,7 +3,7 @@
 # - Ensures MySQL is installed (via Homebrew when available).
 # - Creates a temporary database/user and imports the FeedLand schema.
 # - Generates a throwaway config.json in /tmp using scripts/setup.js.
-# - Installs npm dependencies if missing.
+# - Installs npm dependencies fresh for each run.
 # - Runs `npm test` and then cleans up database + temp files.
 # This is intended for local/CI runs that need a clean environment each time.
 
@@ -34,6 +34,7 @@ function cleanup {
 	"${mysql_cmd[@]}" -e "DROP DATABASE IF EXISTS \`$DB_NAME\`;" >/dev/null 2>&1 || true
 	"${mysql_cmd[@]}" -e "DROP USER IF EXISTS '$DB_USER'@'localhost';" >/dev/null 2>&1 || true
 	rm -rf "$TEMP_DIR"
+	rm -rf "$REPO_ROOT/node_modules"
 }
 
 trap cleanup EXIT INT TERM
@@ -89,6 +90,13 @@ if [[ -f "$SCHEMA_FILE" ]]; then
 	awk 'tolower($0) !~ /^create database/ && tolower($0) !~ /^use / {print}' "$SCHEMA_FILE" >"$IMPORT_FILE"
 fi
 
+# Install dependencies fresh
+(
+	cd "$REPO_ROOT"
+	rm -rf node_modules
+	"$NPM_BIN" install --prefer-online --no-save
+)
+
 # Build config.json via setup.js
 CONFIG_CMD=("$NODE_BIN" "$SCRIPT_DIR/setup.js" \
 	--non-interactive \
@@ -113,11 +121,6 @@ if [[ -f "$IMPORT_FILE" ]]; then
 fi
 
 "${CONFIG_CMD[@]}"
-
-# Install dependencies once
-if [[ ! -d "$REPO_ROOT/node_modules" ]]; then
-	"$NPM_BIN" install
-fi
 
 # Run automated tests
 (
