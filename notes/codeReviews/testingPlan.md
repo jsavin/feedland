@@ -27,7 +27,7 @@ Work Breakdown (chronological)
    - Future enhancements: expand to authenticated flows once session strategy is finalized.
 
 4. **Smoke/E2E Scripts**
-   - Scripted curl wrapper (e.g., `scripts/smoke.sh`) that hits a handful of representative endpoints and checks HTTP 200.
+   - Scripted curl wrapper (e.g., `scripts/smoke.sh`) that hits a handful of representative endpoints and checks HTTP 200; documented in the release checklist (`notes/codeReviews/releaseChecklist.md`).
    - Optional blog publishing smoke (`node blog.js` with fixtures) to mimic manual checks Dave performs.
 
 5. **Performance Baselines (optional stretch)**
@@ -45,5 +45,5 @@ Tracking & Ownership
 - [x] Implement database unit tests. (Owner JES)
 - [x] Implement blog/utils unit tests. (Owner JES)
 - [x] Add HTTP integration tests with temporary DB. (Owner JES)
-- [ ] Document smoke test script and include in release checklist. (Owner JES)
-- [ ] Capture performance baseline (optional). (Owner JES)
+- [x] Document smoke test script and include in release checklist (`notes/codeReviews/releaseChecklist.md`). (Owner JES)
+- [x] Capture performance baseline (mock run logged in `notes/codeReviews/perfBaselines.md`; stage run still pending). (Owner JES)

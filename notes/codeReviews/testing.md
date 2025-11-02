@@ -12,8 +12,8 @@ Highlights:
 - Next coverage goals:
   - **Unit tests**: extend beyond conversion helpers to subscription logic, likes toggles, and Markdown handling using fixtures.
   - **Integration tests**: deepen beyond stubbed GET handlers to include authenticated flows once session strategy is finalized.
-  - **Smoke / E2E scripts**: integrate the new smoke and bench commands into the release checklist after they’re exercised on staging.
-  - **Performance regression checks**: capture benchmark results in `perfBaselines.md` once representative data is available.
+- **Smoke / E2E scripts**: integrate the new smoke and bench commands into the release checklist after they’re exercised on staging; preliminary checklist captured in `notes/codeReviews/releaseChecklist.md`.
+  - **Performance regression checks**: first mock baseline logged in `notes/codeReviews/perfBaselines.md`; capture staging data next.
 - Tooling considerations: continue relying on `node:test` + `node:assert` to avoid third-party dependencies; use helper stubs to prevent outbound calls.
 - Process alignment: fold the suite into the release checklist and plan a CI job once coverage broadens.
 
@@ -23,10 +23,10 @@ Milestones:
 3. Expand HTTP integration suite (e.g., `/subscribe`, `/setsubscriptioncategories`, `/getreadinglistsubscriptions`) with authenticated scenarios.
 4. Script smoke tests (curl wrappers) mirroring manual checks; document in `notes/_TEMPLATE.md` for reproducibility. **(smoke script created; pending validation against staging)**
 5. Integrate tests into CI and document run commands in README / worknotes.
-6. Establish performance regression script leveraging existing load-test tools; tie into review plan. **(bench script scaffolded; baseline collection pending)**
+6. Establish performance regression script leveraging existing load-test tools; tie into review plan. **(bench script scaffolded; mock baseline collected, staging data pending)**
 
 Follow-up:
 - [x] Draft fixtures/harness approach (`node:test`, module stubs). (Owner JES)
 - [x] Automate unit + integration runs under `npm test`. (Owner JES)
-- [ ] Publish smoke test scripts and update release checklist. (Owner JES)
-- [ ] Capture performance regression baseline results and store under `notes/codeReviews/perfBaselines.md`. (Owner JES)
+- [x] Publish smoke test scripts and update release checklist (`notes/codeReviews/releaseChecklist.md`). (Owner JES)
+- [x] Capture performance regression baseline results and store under `notes/codeReviews/perfBaselines.md` (mock run logged; staging baseline outstanding). (Owner JES)

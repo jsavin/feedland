@@ -84,6 +84,26 @@ const STUBS = {
 			if (callback) {
 				callback(undefined, []);
 			}
+		},
+		encode: function (val) {
+			if (val === undefined || val === null) {
+				return "NULL";
+			}
+			if (val instanceof Date) {
+				const iso = val.toISOString().replace('T', ' ').slice(0, 19);
+				return `'${iso}'`;
+			}
+			if (typeof val === "number" || typeof val === "boolean") {
+				return String(val);
+			}
+			const str = val.toString().replace(/'/g, "''");
+			return `'${str}'`;
+		},
+		encodeValues: function (obj) {
+			const keys = Object.keys(obj);
+			const cols = keys.join(", ");
+			const vals = keys.map((key) => this.encode(obj[key])).join(", ");
+			return `(${cols}) values (${vals})`;
 		}
 	},
 	feedlanddatabase: {

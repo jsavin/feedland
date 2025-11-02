@@ -23,4 +23,4 @@ Follow-up:
 - [ ] Run disaster-recovery drills using `database.backupDatabase` outputs and document results. (Owner TBD)
 - [ ] Configure monitoring/alerting stack (logs, rssCloud renewals, feed checker) before the marketing push ramps traffic. (Owner TBD)
 - [ ] Conduct load testing on river and subscription endpoints; note fixes in `worknotes.md`. (Owner TBD)
-- [ ] Publish a testing roadmap (unit/integration/smoke) in `notes/codeReviews/testing.md` and align it with release processes. (Owner TBD)
+- [x] Publish a testing roadmap (unit/integration/smoke) in `notes/codeReviews/testing.md` and align it with release processes (release checklist + perf baseline logged). (Owner JES)
