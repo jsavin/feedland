@@ -2360,14 +2360,10 @@ function toggleItemLike (screenname, itemId, callback) {
 		else {
 			let likesArray = convertLikesToArray (itemRec.likes), likesString = "";
 			if (flLiked) { //remove from array
-				likesArray.forEach (function (name) {
-					if (name != screenname) {
-						likesString += "," + name;
-						}
+				likesArray = likesArray.filter (function (name) {
+					return (name != screenname);
 					});
-				if (likesString.length > 0) {
-					likesString += ",";
-					}
+				likesString = convertLikesarrayToString (likesArray);
 				}
 			else { //add to array
 				likesArray.push (screenname);
