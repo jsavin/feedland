@@ -5,32 +5,36 @@
 	"version": "0.7.2",
 	"license": "GPLV2",
 	"main": "feedland.js",
+	"scripts": {
+		"test": "node --test"
+	},
 	"files": [
 		"blog.js",
 		"readme.md"
-		],
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/scripting/feedland"
-		},
-	"dependencies" : {
-		"request": "*",
-		"md5": "*",
-		"sanitize-html": "*",
-		"marked": "3.0.8",
-		"nodejs-websocket": "*",
-		"daveutils": "^0.4.65",
-		"davetwitter": "^0.6.39",
+	},
+	"dependencies": {
 		"daveappserver": "^0.7.14",
+		"davegithub": "^0.5.5",
 		"daverss": "^0.6.4",
 		"daves3": "^0.4.11",
 		"davesql": "^0.6.0",
-		"reallysimple": "^0.4.26",
-		"davegithub": "^0.5.5",
-		"feedlanddatabase": "^0.8.3",
+		"davetwitter": "^0.6.39",
+		"daveutils": "^0.4.65",
 		"feedhunter": "^0.4.4",
+		"feedlanddatabase": "^0.8.3",
+		"marked": "3.0.8",
+		"md5": "*",
+		"mysql2": "^3.15.3",
+		"nodejs-websocket": "*",
 		"opml": "^0.5.1",
-		"wpidentity": "^0.5.26",
-		"sqllog": "*"
-		} 
+		"reallysimple": "^0.4.26",
+		"request": "*",
+		"sanitize-html": "*",
+		"sqllog": "*",
+		"wpidentity": "^0.5.26"
 	}
+}
